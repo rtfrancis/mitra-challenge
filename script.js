@@ -7,7 +7,9 @@
                 // console.log(events.data[i].logo);
                 $(".slider").append(
                     `<div class='eventCard'>
-                        <img src=${events.data[i].hero} + ><br>
+                        <img class="eventPhoto" src=${
+                            events.data[i].hero
+                        } + ><br>
                         <span class="cardInfo" >
                         <span class='cardTitle'>${
                             events.data[i].event_title
@@ -15,16 +17,24 @@
                         .toString()
                         .slice(11, 15)}
                         </span><br>
-                        <span>${new Date(events.data[i].start_date)
+                        <span class="dates">${new Date(
+                            events.data[i].start_date
+                        )
                             .toString()
                             .slice(3, 11)} - ${new Date(events.data[i].end_date)
                         .toString()
                         .slice(3, 15)}</span><br>
-                        <span>${events.data[i].city}</span>
+                        <span class="cities">${events.data[i].city}</span>
                         </span>
                     </div>`
                 );
             }
+            $(".dates").prepend(
+                `<img class="calendar" src="public/calendar.png">`
+            );
+            $(".cities").prepend(
+                `<img class="place" src="public/standort.png">`
+            );
             $(".slider").append(`<img class="nextKey" src="public/next.png">`);
         }
     });
